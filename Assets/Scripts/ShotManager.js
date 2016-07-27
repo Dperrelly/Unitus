@@ -1,6 +1,6 @@
 ﻿#pragma strict
 
-var bulletPrefab:Transform;
+var bulletPrefab:GameObject;
 
 function Update () {
     if(Input.GetButtonDown("Fire1"))

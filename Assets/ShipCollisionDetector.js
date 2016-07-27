@@ -6,8 +6,8 @@ public function die(){
     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 }
 
-function OnTriggerEnter2D(other : Collider2D) {
-    if(other.gameObject.tag == "DestroysShip"){
+function OnCollisionEnter2D(col : Collision2D) {
+    if(col.gameObject.tag == "Enemy"){
         die();
     }
 }
