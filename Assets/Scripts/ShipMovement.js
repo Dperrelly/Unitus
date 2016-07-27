@@ -3,13 +3,15 @@
 var speed : float = 10;
 var cameraTransform : Transform;
 var col : BoxCollider2D;
+public var yTranslation : float;
+public var xTranslation : float;
 
 public function FixedUpdate() {
 
     // Get the horizontal and vertical axis.
     // The value is in the range -1 to 1
-    var yTranslation : float = Input.GetAxisRaw ("Vertical") * speed;
-    var xTranslation : float = Input.GetAxisRaw ("Horizontal") * speed;
+    yTranslation = Input.GetAxis ("Vertical") * speed;
+    xTranslation = Input.GetAxis ("Horizontal") * speed;
 		
     // Make it move 10 meters per second instead of 10 meters per frame...
     yTranslation *= Time.deltaTime;
