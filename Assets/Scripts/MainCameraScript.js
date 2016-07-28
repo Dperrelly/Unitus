@@ -2,6 +2,7 @@
 
 var destination : CameraWaypointScript;
 var speed : float = 100;
+var ship : Transform;
 private var destinationPosition : Vector2;
 
 function reachedWaypoint(){
@@ -26,9 +27,15 @@ function Start () {
 function Update () {
 	var step = speed * Time.deltaTime;
 
+	//get vector to move
+	var translation : Vector2 = Vector2.MoveTowards(transform.position, destinationPosition, step) - transform.position;
+
 	//move towards destination
-	transform.position = Vector2.MoveTowards(transform.position, destinationPosition, step);
+	transform.position += translation;
 	transform.position.z = -10;
+
+
+	ship.position += translation;
 
 	if(transform.position.x == destinationPosition.x && transform.position.y == destinationPosition.y){
 		reachedWaypoint();
